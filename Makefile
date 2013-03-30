@@ -4,7 +4,7 @@ BUILDDIR=build
 SRCS=$(wildcard *.c)
 PROGRAMS=$(patsubst %.c,$(BUILDDIR)/%, $(SRCS) )
 
-CFLAGS= -Wall -Werror -pedantic -ansi
+CFLAGS= -Wall -Wextra -Werror -pedantic-errors -std=c89
 
 all: ${PROGRAMS}
 
