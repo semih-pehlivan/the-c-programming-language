@@ -9,7 +9,7 @@ CFLAGS= -Wall -Werror -pedantic -ansi
 all: ${PROGRAMS}
 
 $(BUILDDIR)/%: %.c $(BUILDDIR)
-	$(CC) $(CFLAGS) $< -o $@
+	$(CC) -g $(CFLAGS) $< -o $@
 
 $(BUILDDIR):
 	mkdir $(BUILDDIR)
