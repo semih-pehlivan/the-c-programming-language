@@ -1,0 +1,13 @@
+this is a normal line
+	this line is preceded by a tab
+this line is followed by a tab	
+  this line is preceded by two spaces
+this line is followed by two spaces
+
+	
+		
+ 
+  
+ 	
+	 
+the line above are blank lines, combinations of tabs and spaces

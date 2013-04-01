@@ -5,6 +5,7 @@
  */
 
 #include <stdio.h>
+#include "chapter1.h"
 
 #define MARGIN 1 
 
@@ -18,36 +19,6 @@
   #define MAXLINE 80
 #endif
 
-int getline(char s[], int lim){
-   int c, i;
-
-   for(i=0; i<lim-1 && (c=getchar())!=EOF && c!='\n'; ++i){
-     s[i]=c;
-   }
-   if(c == '\n') {
-     s[i] = c;
-     i++;
-   }
-   s[i] = 0;
-   return i;
-}
-
-
-void copy(char to[], char from[]){
-  int i = 0;
-  while((to[i] = from[i]) != '\0'){
-    ++i;
-  }
-}
-
-
-int bstrlen(const char * str){
-  const char * s;
-  for (s = str; *s; ++s)
-    ;
-  return (s - str);
-}
-
 
 /*
  * Re-scoped. Now takes input and truncates smartly, letting long lines be 
@@ -60,7 +31,7 @@ int main(){
   char buf[MAXLINE];
 
   linum = 1;
-  while((len = getline(line,MAXLINE)) > 0){
+  while((len = bgetline(line,MAXLINE)) > 0){
     
     /* Is this a full line? */
     if (line[len-1] == '\n'){
@@ -74,7 +45,7 @@ int main(){
     }else{
       /* no - We loop over getline until it is, 
          keeping a secondary buffer filled up. */
-      while((fraglen = getline(buf,MAXLINE)) > 0){
+      while((fraglen = bgetline(buf,MAXLINE)) > 0){
         len += fraglen;
         if (buf[fraglen-1] == '\n'){
           /* We've reached the end of this long line.
