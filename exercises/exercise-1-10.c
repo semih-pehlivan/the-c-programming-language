@@ -15,6 +15,7 @@ int main()
       case '\t': printf("\\t"); break;
       case '\b': printf("\\b"); break;
       case '\\': printf("\\\\"); break;
+      case ' ': printf("\\_"); break;
       default: 
         putchar(c); 
         break;
