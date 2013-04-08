@@ -26,6 +26,8 @@ int entab(int lindex, int blanks){
   }
 }
 
+
+
 int main(){
   int c;
   int lindex = 0; /* Where in the line are we?*/
@@ -33,21 +35,19 @@ int main(){
 
   while((c = getchar()) != EOF){
     switch(c){
-      case '\n': 
-        lindex = 0;
-        putchar(c);
-        break;
       case ' ':
         blanks++; 
         break; 
-      default:
-        if (blanks == 0 ){
-          ;
-        }else if (blanks == 1){
-          putchar(' ');
-          lindex++;
+      case '\n': 
+        if(blanks > 0){
+          lindex = entab(lindex,blanks);
           blanks = 0;
-        }else if(blanks > 1){
+        }
+        putchar(c);
+        lindex = 0;
+        break;
+      default:
+        if(blanks > 0){
           lindex = entab(lindex,blanks);
           blanks = 0;
         }
