@@ -34,4 +34,7 @@ $(BUILDDIR):
 clean:
 	rm -rf $(BUILDDIR)
 
-.PHONY: all clean
+test:
+	./test-entab.sh
+
+.PHONY: all clean test
